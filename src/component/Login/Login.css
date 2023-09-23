@@ -1,4 +1,21 @@
 .FormLogin {
     width: 500px;
-    
+    margin-left: 275px;
+    margin-top: 185px;
+}
+
+.Criar {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.Botao {
+    width: 100px;
+    text-align: left;
+    margin-top: 11px;
+}
+
+.Logar {
+    width: 150px;
+    margin-left: 35%;
 }
