@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import './Header.css'
 import MenuIcon from '@mui/icons-material/Menu';
@@ -7,6 +7,7 @@ import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import LogoHeader from "./File/logo.png"
 
 function Header() {
+
     return <div className="AppHeader">
             <Conteudo>
                 <Grid container spacing={2}>
@@ -20,6 +21,14 @@ function Header() {
                     </Grid> 
                 </Grid>
             </Conteudo>
+
+            <ul className="navbar-menu">
+                <li className="navbar-usuario">Gabriel Filipy</li>
+                <li className="navbar-menu-item"><a href="">Criar documento</a></li>
+                <li className="navbar-menu-item"><a href="">Cadastrar usuário</a></li>
+                <li className="navbar-menu-item"><a href="">Cadastrar setor</a></li>
+            </ul>
+
         </div>
 }
 
