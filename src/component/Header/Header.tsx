@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Grid } from "@mui/material";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
-import LogoHeader from "./File/logo.png"
+import LogoHeader from "./File/LOGO.png.png"
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 
 function Header() {
