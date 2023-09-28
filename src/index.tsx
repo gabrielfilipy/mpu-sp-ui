@@ -5,6 +5,7 @@ import App from './component/App/App';
 import Header from './component/Header/Header';
 import { BrowserRouter } from 'react-router-dom';
 import SubHeader from './component/SubHeader/SubHeader';
+import VisualizarDoc from './component/VisualizarDoc/visualizarDoc';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,6 +16,7 @@ root.render(
       <Header></Header>
       <SubHeader />
       <App />
+      <VisualizarDoc></VisualizarDoc>
     </BrowserRouter>
   </React.StrictMode>
 );
