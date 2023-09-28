@@ -12,13 +12,14 @@ import Box from "../../compenentes-compartilhados/Box/Box";
 
 
 
-function VisualizarDoc (){ 
+function VisualizarDoc () {
+    var lista = ['Gabriel', 'Mateus'] 
     var descricao = "Memorando detran"
     var userName = 'Marcus'
     return <Conteudo>
  <Funcoes></Funcoes>
 
-           <Grid container spacing={0.0}>
+           <Grid container spacing={2.0}>
        
          
          <Grid item xs={9}>
@@ -36,17 +37,19 @@ function VisualizarDoc (){
                     <p><b>Interessado:</b>{ descricao }</p>
                     <p><b>Assunto:</b>{ descricao }</p>
                 </div>
+                <div className="footer">
+                { userName }
+                <p>Unidade</p>
+               </div>
                </div>
                
                </Grid>
                <Grid item xs={3}>
-                <Box></Box>
+                <Box array={ lista } titulo="Cossignatários"/>
                 </Grid>
+               
                </Grid>
-               <div className="footer">
-                { userName }
-                <p>Unidade</p>
-               </div>
+              
                
         
 </Conteudo>

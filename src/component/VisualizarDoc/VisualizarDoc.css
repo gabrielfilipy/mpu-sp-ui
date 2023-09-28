@@ -32,4 +32,10 @@ p {
 .AppFucoes {
     margin-bottom: 20px;
 }
-
+.footer {
+    width: 100%;   
+    text-align: center;
+    line-height: 0;
+    word-wrap: break-word;
+    margin-top: 150px;
+}

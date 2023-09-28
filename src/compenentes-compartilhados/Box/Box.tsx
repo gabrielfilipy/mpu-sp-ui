@@ -8,7 +8,7 @@ declare interface BoxProps {
 
 const Box: React.FC<BoxProps> = (props) => {
  return <div className="AppBox">
-    <h2 className="HeaderBox">{props.titulo} <h4>Cossignatário</h4></h2>
+    <h2 className="HeaderBox">{props.titulo}</h2>
     <ul>  
         {
             props.array?.map(result => <li>{ result } </li>)
