@@ -8,6 +8,7 @@ import Formulario from '../Formulario/Formulario';
 import Mesa from '../Mesa/Mesa';
 import VisualizarDoc from '../VisualizarDoc/visualizarDoc';
 import ListarUsuario from '../ListarUsuario/ListarUsuario'
+import paginaNaoEncontrada from '../paginaNaoEncontrada/paginaNaoEncontrada';
 function App() { 
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} ></Route>
           <Route path="/visualizar-documento/:codigo" element={<VisualizarDoc />} ></Route>
           <Route path="/listarusuario" element={<ListarUsuario />} ></Route>
+          <Route path='*' Component={paginaNaoEncontrada}></Route>
         </Routes>
     </div>
     
