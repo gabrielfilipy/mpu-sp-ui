@@ -29,22 +29,24 @@ function TramitarDoc() {
                     </Grid>
                 </Grid>
             </div>
-
+            
+           
             <div className="mensagemdotramitar">
-                <p><h2>Escolha para quem vai ser tramitado esse documento</h2></p>
-            </div>
-
-            <div className="botaodotramitardoc">
                 <Grid container spacing={0.5}>
-                    <Grid item xs={5}>
+                <Grid item xs={7.8}>
+        
+                <p>Escolha para quem será tramitado esse documento</p>
+                
+                </Grid>
+                    <Grid item xs={2}>
                         <Button value="Cancelar" color="danger" />
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item xs={2}>
                         <Button value="Tramitar" onClick={MensagemDeAlerta}
                         />
                     </Grid>
                 </Grid>
-            </div>
+                </div>
 
         </div>
 

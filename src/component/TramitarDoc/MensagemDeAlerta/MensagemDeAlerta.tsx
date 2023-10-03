@@ -5,37 +5,21 @@ import Swal from "sweetalert2"
 
 
 function MensagemDeAlerta() {
-  const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: 'btn btn-success',
-      cancelButton: 'btn btn-danger'
-    },
-    buttonsStyling: false
-  })
-
-  swalWithBootstrapButtons.fire({
+  Swal.fire({
     title: 'Tem certeza que deseja tramitar o documento?',
-    text: "Você não poderá desfazer essa ação!",
+    text: "Você não será capaz de reverter isso!",
     icon: 'warning',
     showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
     confirmButtonText: 'Sim!',
-    cancelButtonText: 'NÃO!',
-    reverseButtons: true
+    cancelButtonText: 'Cancelar!'
   }).then((result) => {
     if (result.isConfirmed) {
-      swalWithBootstrapButtons.fire(
+      Swal.fire(
         'Tramitado!',
-        'Você Tramitou Com Sucesso.',
+        'Seu arquivo foi tramitado.',
         'success'
-      )
-    } else if (
-      /* Read more about handling dismissals below */
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-      swalWithBootstrapButtons.fire(
-        'Cancelado',
-        'Seu arquivo ta seguro :)',
-        'error'
       )
     }
   })

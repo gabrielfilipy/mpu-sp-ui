@@ -1,23 +1,15 @@
 .caixadotramitardoc {
     width: 100%;
     height: 450px;
-    border: none;
-    border: 2px solid #ccc;
     border-radius: 0;
     color: #222;
     margin-bottom: 15px;
 }
 
 .mensagemdotramitar {
-    width: 100%;
     padding: 15px;
     font-size: 12px;
-    text-align: center;
-    margin-top: 15%;
+    text-align: left;
+    margin-top: 10px;
 }
 
-.botaodotramitardoc {
-    margin-top: 85px;
-    margin-left: 600px;
-
-}
