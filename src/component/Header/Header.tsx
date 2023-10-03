@@ -10,37 +10,38 @@ import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 
 function Header() {
 
-    const [showMenu, setShowMenu] =  useState(true);
-    
+    const [showMenu, setShowMenu] = useState(true);
+
     return <div className="AppHeader">
-            <Conteudo>
-                <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                        <img className="Logo" src={LogoHeader} alt="logo do cliente" />
-                    </Grid> 
-                    <Grid item xs={6}>
-                        <div className="menu">
-                            <a href="#" onClick={() => setShowMenu(false)}>
-                                <MenuIcon sx={{ color: 'white' }} fontSize="large" />
-                            </a>
-                        </div> 
-                    </Grid> 
+        <Conteudo>
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <img className="Logo" src={LogoHeader} alt="logo do cliente" />
                 </Grid>
-            </Conteudo>
+                <Grid item xs={6}>
+                    <div className="menu">
+                        <a href="#" onClick={() => setShowMenu(false)}>
+                            <MenuIcon sx={{ color: 'white' }} fontSize="large" />
+                        </a>
+                    </div>
+                </Grid>
+            </Grid>
+        </Conteudo>
 
-            <ul className="navbar-menu" hidden={showMenu}>
-                <a href="#" onClick={() => setShowMenu(true)}>
-                    <CloseIcon sx={{ color: 'white' }} fontSize="large" />
-                </a>
-                <li className="navbar-usuario">Loiane Moskviq</li>
-                <li className="navbar-menu-item"><Link to="/mesa-virtual">Home</Link></li>  
-                <li className="navbar-menu-item"><Link to="/documento">Criar documento</Link></li>
-                <li className="navbar-menu-item"><Link to="/usuario">Cadastro usuário</Link></li>
-                <li className="navbar-menu-item"><Link to="/visualizar-documento">Visualizar documento</Link></li>
-                <li className="navbar-menu-item"><Link to="/listarusuario">Lista de Usuários</Link></li>
-            </ul>
+        <ul className="navbar-menu" hidden={showMenu}>
+            <a href="#" onClick={() => setShowMenu(true)}>
+                <CloseIcon sx={{ color: 'white' }} fontSize="large" />
+            </a>
+            <li className="navbar-usuario">Loiane Moskviq</li>
+            <li className="navbar-menu-item"><Link to="/mesa-virtual">Home</Link></li>
+            <li className="navbar-menu-item"><Link to="/documento">Criar documento</Link></li>
+            <li className="navbar-menu-item"><Link to="/usuario">Cadastro usuário</Link></li>
+            <li className="navbar-menu-item"><Link to="/visualizar-documento">Visualizar documento</Link></li>
+            <li className="navbar-menu-item"><Link to="/listarusuario">Lista de Usuários</Link></li>
+            <li className="navbar-menu-item"><Link to="/Tramitar-documento">Tramitar documento</Link></li>
+        </ul>
 
-        </div>
+    </div>
 }
 
 export default Header
