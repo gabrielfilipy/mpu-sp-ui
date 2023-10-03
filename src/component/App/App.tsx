@@ -7,7 +7,9 @@ import Login from '../Login/Login';
 import Formulario from '../Formulario/Formulario';
 import Mesa from '../Mesa/Mesa';
 import VisualizarDoc from '../VisualizarDoc/visualizarDoc';
-import ListarUsuario from '../ListarUsuario/ListarUsuario'
+import ListarUsuario from '../ListarUsuario/ListarUsuario';
+import TramitarDoc from '../TramitarDoc/TramitarDoc';
+
 function App() { 
   return (
     <div className="App">
@@ -18,6 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} ></Route>
           <Route path="/visualizar-documento" element={<VisualizarDoc />} ></Route>
           <Route path="/listarusuario" element={<ListarUsuario />} ></Route>
+          <Route path="/Tramitar-documento" element={<TramitarDoc />} ></Route>
         </Routes>
     </div>
     
