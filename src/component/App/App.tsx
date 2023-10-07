@@ -10,6 +10,8 @@ import VisualizarDoc from '../VisualizarDoc/visualizarDoc';
 import ListarUsuario from '../Usuario/Tabela/TabelaUsuario'
 import FormularioUsuario from '../Usuario/FormularioUsuario';
 import UsuarioHome from '../Usuario/UsuarioHome';
+import PaginaNaoEncontrada from '../PaginaNaoEncontrada/PaginaNaoEncontrada';
+
 function App() { 
   return (
     <div className="App">
@@ -20,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} ></Route>
           <Route path="/visualizar-documento/:codigo" element={<VisualizarDoc />} ></Route>
           <Route path="/listar-usuario" element={<UsuarioHome />} ></Route>
+          <Route path="*" Component={PaginaNaoEncontrada}></Route>
         </Routes>
     </div>
     
