@@ -1,0 +1,46 @@
+table.AppTabelaUsuario {
+    margin-top: 25px;
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        background-color: rgb(0,0,0);
+
+        tr {
+            th {
+                color: white;
+                text-align: left;
+                padding: 7px 10px;
+                font-size: .8em;
+                font-weight: 400;
+                text-transform: uppercase;
+                letter-spacing: .75px;
+            }
+        }
+    }
+
+}
+
+tbody {
+    tr {
+        &:hover {
+            background-color: rgb(246, 245, 245);
+
+        }
+        td {
+            padding: 7px 10px;
+        }
+    }
+}
+
+.acoes {
+    > *:not(:last-child) {
+        margin-right: 5px;
+    }
+}
+
+table.AppTabelaUsuario a {
+    color: #29a9ff;
+    text-decoration: none;
+}
+

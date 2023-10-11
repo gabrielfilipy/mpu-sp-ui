@@ -11,6 +11,10 @@ import TabelaUsuario from '../Usuario/Tabela/TabelaUsuario';
 import VisualizarDocCompleto from '../VisualizarDocCompleto/VisualizarDocCompleto';
 import FormularioUsuario from '../Usuario/FormularioUsuario';
 import UsuarioHome from '../Usuario/UsuarioHome';
+import CadastrarSetor from '../CadastrarSetor/CadastrarSetor';
+
+
+
 
 function App() { 
   return (
@@ -26,6 +30,7 @@ function App() {
           <Route path="/visualizar-documento-completo" element={<VisualizarDocCompleto />} ></Route>
           <Route path="/visualizar-documento/:codigo" element={<VisualizarDoc />} ></Route>
           <Route path="/listar-usuario" element={<UsuarioHome />} ></Route>
+          <Route path="/cadastro-setor" element={<CadastrarSetor />} ></Route>
         </Routes>
     </div>
     
