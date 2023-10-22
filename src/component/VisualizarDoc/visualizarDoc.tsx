@@ -14,9 +14,9 @@ function VisualizarDoc () {
 
     var codigoDocumento = codigo
     var lista = ['Steve Jobs', 'Donal Trump'] 
-    var descricao = "Memorando detransssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
-    var interessado = 'Interessado fssnfsfnsf'
-    var assunto = 'Assunto csfcsvvvdvdvkndvkdnvdnvvndvnkn'
+    var descricao = "Memorando detran"
+    var interessado = 'Interessado alguem específico'
+    var assunto = 'Assunto qualquer um'
     var userName = 'Marcus'
     return <Conteudo>
 
@@ -61,4 +61,5 @@ function VisualizarDoc () {
 </Conteudo>
 
 }
+
 export default VisualizarDoc

@@ -71,7 +71,9 @@ function CadastrarSetor() {
             </FormControl>
         </div>
 
-        <Link className='BtnCriarDocumento AppCriarDocumento right' to="/FormularioSetor"><Button value='Novo Setor' color='create'></Button></Link>
+        <Link className='BtnCriarDocumento AppCriarDocumento right' to="/FormularioSetor">
+            <Button value='Novo Setor' color='create'></Button>
+        </Link>
 
         <div className="clear"></div>
 

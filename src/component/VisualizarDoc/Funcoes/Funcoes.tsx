@@ -16,18 +16,20 @@ declare interface FuncoesProp {
 const Excluir=()=>{
 
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Você tem certeza?',
+        text: "Você não poderá reverter isso!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes,  delete it!'
+        confirmButtonText: 'Sim,  delete isso!',
+        cancelButtonText: 'cancelar'
+
         }).then((result) => {
             if (result.isConfirmed) {
               Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Excluído!',
+                'Seu arquivo foi excluído.',
                 'success'
               )
             }

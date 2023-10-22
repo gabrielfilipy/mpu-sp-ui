@@ -33,9 +33,9 @@ function Documento() {
                 <User />
 
             </Grid>
-            <Input label="Interessado"/>
-            <Input label="Assunto"/>
-            <Input label="Número de referência"/>
+                <Input label="Interessado"/>
+                <Input label="Assunto"/>
+                <Input label="Número de referência"/>
             
             <textarea className="TextArea"></textarea>
 
@@ -47,7 +47,9 @@ function Documento() {
                     <Button>Visualizar</Button>
                 </Grid>
                 <Grid item xs={2}>
-                <Link className='BtnCriarDocumento AppCriarDocumento' to="/mesa-virtual"><Button value="Cancelar" color="grey" /></Link>
+                    <Link className='BtnCriarDocumento AppCriarDocumento' to="/mesa-virtual">
+                        <Button value="Cancelar" color="danger" />
+                    </Link>
                     
                 </Grid>
             </Grid>

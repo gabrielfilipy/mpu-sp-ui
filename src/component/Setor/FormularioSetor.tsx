@@ -107,7 +107,9 @@ function FormularioSetor() {
                         </Button> 
                     </Grid>
                     <Grid item xs={3}>
-                        <Link className='BtnCriarDocumento AppCriarDocumento' to="/listar-usuario"><Button value="Cancelar" color="grey" /></Link>
+                        <Link className='BtnCriarDocumento AppCriarDocumento' to="/listar-usuario">
+                            <Button value="Cancelar" color="danger" />
+                        </Link>
                     </Grid>
                 </Grid>
             </div>
