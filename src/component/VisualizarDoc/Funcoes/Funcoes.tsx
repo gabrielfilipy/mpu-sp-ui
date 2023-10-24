@@ -6,7 +6,6 @@ import Assinar from '../../Assinar/Assinar';
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
 import Incluir from '../../Incluir-Consignatario/Incluir';
-import EditarDocumento from '../../EditarDocumento/Editar';
 
 declare interface FuncoesProp {
     codigoDocumento?: string
