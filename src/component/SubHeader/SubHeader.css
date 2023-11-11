@@ -1,13 +1,25 @@
 .AppSubHeader {
+    width: 100%;
+    padding: 5px;
     background-color: var(--sub-cor-padrao);
-    padding: 1px;
 }
 
 .Avatar {
     text-align: right;
     cursor: pointer;
-    margin-top: 5px;
 }
+
+@media (max-width: 580px){
+    .BotaoDeSair{
+        align-items: end;
+    }
+}
+
+.BotaoDeSair{
+    width: 100%;
+    text-align: right;
+}
+
 
 .Ambiente {
     text-align: left;

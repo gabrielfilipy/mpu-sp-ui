@@ -24,10 +24,11 @@ function SubHeader(props: SubHeaderProps) {
                             <Chip avatar={<Avatar sx={{ background: 'white' }}>G</Avatar>} label="Yasmin Soares" />
                         </div> 
                         </Grid>
-                        <Grid item xs={1}> 
+                        <Grid item xs={2} sm={1}> 
+                            <div className="BotaoDeSair">
                             <Button value="Sair" color="danger" />
+                            </div>
                         </Grid>
-                    
                 </Grid>
             </Conteudo>
         </div>
