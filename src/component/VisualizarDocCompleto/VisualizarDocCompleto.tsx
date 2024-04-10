@@ -1,8 +1,8 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import Box from "../../compenentes-compartilhados/Box/Box";
+import Box from "@compartilhados/Box/Box";
 import './VisualizarDocCompleto.css'
-import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import Conteudo from "@compartilhados/Conteudo/Conteudo";
 
 function VisualizarDocCompleto () {
 

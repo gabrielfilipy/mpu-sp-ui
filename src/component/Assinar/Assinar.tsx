@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Dialog, DialogTitle, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import Button from '../../compenentes-compartilhados/Button/Button';
+import Button from '@compartilhados/Button/Button';
 import './Assinar.css'
 import IconAssinar from "./Files/icon-assinar.png"
 import AssinarComCertificadoDigital from '../AssinarComCertificadoDigital/AssinarComCertificadoDigital';

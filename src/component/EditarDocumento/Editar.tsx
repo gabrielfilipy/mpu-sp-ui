@@ -1,12 +1,12 @@
 import React from "react";
-import Form from "../../compenentes-compartilhados/Form/Form";
-import Input from "../../compenentes-compartilhados/Input/Input";
-import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import Form from "@compartilhados/Form/Form";
+import Input from "@compartilhados/Input/Input";
+import Conteudo from "@compartilhados/Conteudo/Conteudo";
 import './Editar.css';
 import { Grid } from "@mui/material";
-import Button from "../../compenentes-compartilhados/Button/Button";
+import Button from "@compartilhados/Button/Button";
 import { Link } from "react-router-dom";
-import User from "../../compenentes-compartilhados/User/User";
+import User from "@compartilhados/User/User";
 
 export class DocumentoModel {
     sigla?: string

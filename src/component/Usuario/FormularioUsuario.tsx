@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Form from "../../compenentes-compartilhados/Form/Form";
-import Input from "../../compenentes-compartilhados/Input/Input";
-import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import Form from "@compartilhados/Form/Form";
+import Input from "@compartilhados/Input/Input";
+import Conteudo from "@compartilhados/Conteudo/Conteudo";
 import { Grid } from "@mui/material";
-import Button from "../../compenentes-compartilhados/Button/Button";
+import Button from "@compartilhados/Button/Button";
 import './FormularioUsuario.css'
 import { cadastrarUsuario } from "./Servico/usuario.service";
 import Swal from "sweetalert2";

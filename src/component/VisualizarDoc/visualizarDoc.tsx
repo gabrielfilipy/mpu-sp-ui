@@ -1,10 +1,10 @@
 import React from "react";
-import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import Conteudo from "@compartilhados/Conteudo/Conteudo";
 import { Grid } from "@mui/material";
 import './VisualizarDoc.css'
 import LogoDoc from "./Files/logo-prefeitura.png"
 import Funcoes from "./Funcoes/Funcoes";
-import Box from "../../compenentes-compartilhados/Box/Box";
+import Box from "@compartilhados/Box/Box";
 import { useParams } from "react-router";
 
 function VisualizarDoc () {
