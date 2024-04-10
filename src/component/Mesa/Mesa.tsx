@@ -1,9 +1,9 @@
 import React, {  useEffect, useState } from 'react';
-import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo'
-import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup'
+import Conteudo from '@compartilhados/Conteudo/Conteudo'
+import InputGroup from '@compartilhados/InputGroup/InputGroup'
 import './Mesa.css'
 import TableMesa from './Table/TableMesa';
-import Button from '../../compenentes-compartilhados/Button/Button';
+import Button from '@compartilhados/Button/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import FolderCopyIcon from '@mui/icons-material/FolderCopy';
 import { buscarDocumento } from './Servico/documento.servico';

@@ -1,5 +1,5 @@
 import React from 'react'
-import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import Conteudo from "@compartilhados/Conteudo/Conteudo";
 import './NaoAutorizado.css'
 
     function NaoAutorizado() {

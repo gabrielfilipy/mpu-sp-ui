@@ -2,7 +2,7 @@ import React from "react";
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import Checkbox from '@mui/material/Checkbox';
 import "./TelaDePermissoes.scss";  
-import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import Conteudo from "@compartilhados/Conteudo/Conteudo";
 
 function permissoesUsuario() {
     return <Conteudo>

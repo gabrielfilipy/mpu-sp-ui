@@ -1,9 +1,9 @@
 import './CadastrarSetor.scss'
 import React, { useEffect, useState } from 'react';
-import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
-import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup';
+import Conteudo from '@compartilhados/Conteudo/Conteudo';
+import InputGroup from '@compartilhados/InputGroup/InputGroup';
 import { Link } from 'react-router-dom';
-import Button from '../../compenentes-compartilhados/Button/Button';
+import Button from '@compartilhados/Button/Button';
 import { listarSetores, buscarSetores} from './Servico/Servico';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import Swal from 'sweetalert2';
