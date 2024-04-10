@@ -1,5 +1,5 @@
 import http from "../../../utils/http"; 
-import { LoginModel } from "../Login";
+import { LoginModel } from "..";
 
 export const logar = (loging: LoginModel ) => {
     return http.post('/v1/auth/login', loging)

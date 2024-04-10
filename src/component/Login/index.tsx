@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Form from '@compartilhados/Form/Form'
-import Input from '@compartilhados/Input/Input';
-import Conteudo from '@compartilhados/Conteudo/Conteudo';
-import Button from '@compartilhados/Button/Button';
+import Form from '@compartilhados/Form'
+import Input from '@compartilhados/Input';
+import Conteudo from '@compartilhados/Conteudo';
+import Button from '@compartilhados/Button';
 import './Login.css'
-import { logar } from './Servico/login.servico'; 
+import { logar } from './Servico'; 
 import Swal from 'sweetalert2';
 import { Grid } from '@mui/material';
 import Cookies from 'universal-cookie';

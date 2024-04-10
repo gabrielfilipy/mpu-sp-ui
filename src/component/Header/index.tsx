@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Header.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import Conteudo from "@compartilhados/Conteudo/Conteudo";
+import Conteudo from "@compartilhados/Conteudo";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import Cookies from 'universal-cookie';

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Dialog, DialogTitle, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import Button from '@compartilhados/Button/Button';
-import './Assinar.css'
+import Button from '@compartilhados/Button';
+import './index.css'
 import IconAssinar from "./Files/icon-assinar.png"
-import AssinarComCertificadoDigital from '../AssinarComCertificadoDigital/AssinarComCertificadoDigital';
-import Login from '../Login/Login';
+import AssinarComCertificadoDigital from '../AssinarComCertificadoDigital';
+import Login from '../Login';
 
 export interface SimpleDialogProps {
     open: boolean;

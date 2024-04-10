@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Form from "@compartilhados/Form/Form";
-import Input from "@compartilhados/Input/Input";
-import Conteudo from "@compartilhados/Conteudo/Conteudo";
+import Form from "@compartilhados/Form";
+import Input from "@compartilhados/Input";
+import Conteudo from "@compartilhados/Conteudo";
 import { Grid } from "@mui/material";
-import Button from "@compartilhados/Button/Button";
+import Button from "@compartilhados/Button";
 import './FormularioOrgao.css'
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";

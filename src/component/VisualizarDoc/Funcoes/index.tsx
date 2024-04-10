@@ -1,11 +1,11 @@
 import React from 'react';
 import '../VisualizarDoc.css'
-import Button from "../../../compenentes-compartilhados/Button/Button"; 
+import Button from "../../../compenentes-compartilhados/Button"; 
 import { Grid } from "@mui/material";
-import Assinar from '../../Assinar/Assinar';
+import Assinar from '../../Assinar';
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
-import Incluir from '../../Incluir-Consignatario/Incluir';
+import Incluir from '../../Incluir-Consignatario';
 
 declare interface FuncoesProp {
     codigoDocumento?: string

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Dialog, DialogTitle} from '@mui/material'
-import CircularProgressWithLabel from '@compartilhados/CircularProgressWithLabel/CircularProgressWithLabel';
-import Conteudo from '@compartilhados/Conteudo/Conteudo';
+import CircularProgressWithLabel from '@compartilhados/CircularProgressWithLabel';
+import Conteudo from '@compartilhados/Conteudo';
 
 export interface SimpleDialogProps {
     open: boolean;

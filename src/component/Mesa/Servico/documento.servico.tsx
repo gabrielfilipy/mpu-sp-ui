@@ -1,6 +1,6 @@
 
 import http from "../../../utils/http"; 
-import { DocumentoModel } from "../../Documento/Documento"; 
+import { DocumentoModel } from "../../Documento"; 
 
 export const listarDocumentos = () => {
     return http
