@@ -1,26 +1,26 @@
 import React from 'react';
-import './App.css';
+import './index.css';
 import {} from 'react-router'
 import { Route, Routes } from 'react-router-dom';
-import Documento from '../Documento/Documento';
-import Login from '../Login/Login';
-import Mesa from '../Mesa/Mesa';
-import VisualizarDoc from '../VisualizarDoc/visualizarDoc';
-import TabelaUsuario from '../Usuario/Tabela/TabelaUsuario';
-import VisualizarDocCompleto from '../VisualizarDocCompleto/VisualizarDocCompleto';
+import Documento from '../Documento';
+import Login from '../Login';
+import Mesa from '../Mesa';
+import VisualizarDoc from '../VisualizarDoc';
+import TabelaUsuario from '../Usuario/Tabela';
+import VisualizarDocCompleto from '../VisualizarDocCompleto';
 import FormularioUsuario from '../Usuario/FormularioUsuario';
 import UsuarioHome from '../Usuario/UsuarioHome';
 import FormularioSetor from '../Setor/FormularioSetor';
-import PaginaNaoEncontrada from '../PaginaNaoEncontrada/PaginaNaoEncontrada';
+import PaginaNaoEncontrada from '../PaginaNaoEncontrada';
 import TramitarDoc from '../TramitarDoc/TramitarDoc';
-import CadastrarSetor from '../CadastrarSetor/CadastrarSetor';
+import CadastrarSetor from '../CadastrarSetor';
 
 import PermissoesUsuario from '../TelaDePermissoes/TelaDePermissoes';
 
-import CadastrarOrgao from '../CadastrarOrgao/CadastrarOrgao';
-import FormularioOrgao from '../Orgao/FormularioOrgao';
-import EditarDocumento from '../EditarDocumento/Editar';
-import NaoAutorizado from '../NaoAutorizado/NaoAutorizado';
+import CadastrarOrgao from '../CadastrarOrgao';
+import FormularioOrgao from '../Orgao';
+import EditarDocumento from '../EditarDocumento';
+import NaoAutorizado from '../NaoAutorizado';
 
 function App() { 
   return (

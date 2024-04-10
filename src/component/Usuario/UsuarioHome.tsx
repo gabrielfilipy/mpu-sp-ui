@@ -1,5 +1,5 @@
 import React from 'react';
-import TabelaUsuario from './Tabela/TabelaUsuario';
+import TabelaUsuario from './Tabela';
 
 function UsuarioHome() {
 

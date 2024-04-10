@@ -1,7 +1,8 @@
 import React from 'react'
 import { Dialog } from '@mui/material'
-import Button from '../../compenentes-compartilhados/Button/Button';
+import Button from '@compartilhados/Button';
 import './Incluir.css'
+
 
 export interface SimpleDialogProps {
     open: boolean;

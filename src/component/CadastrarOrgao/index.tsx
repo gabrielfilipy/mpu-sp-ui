@@ -1,9 +1,9 @@
 import './CadastrarOrgao.scss'
 import React, { useEffect, useState } from 'react';
-import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
-import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup';
+import Conteudo from '@compartilhados/Conteudo';
+import InputGroup from '@compartilhados/InputGroup';
 import { Link } from 'react-router-dom';
-import Button from '../../compenentes-compartilhados/Button/Button';
+import Button from '@compartilhados/Button';
 import { listarOrgaos, buscarOrgaos } from './Servico/Servico'; 
 import Swal from 'sweetalert2';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';

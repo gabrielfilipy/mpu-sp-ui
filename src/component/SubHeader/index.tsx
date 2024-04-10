@@ -1,8 +1,9 @@
+// eslint-disable-next-line
 import React, { useEffect, useState } from "react";
 import './SubHeader.css' 
 import { Avatar, Chip } from "@mui/material";
-import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
-import Button from "../../compenentes-compartilhados/Button/Button";
+import Conteudo from "@compartilhados/Conteudo";
+import Button from "@compartilhados/Button";
 import Cookies from "universal-cookie";
 import { useLocation, useNavigate } from "react-router";
 

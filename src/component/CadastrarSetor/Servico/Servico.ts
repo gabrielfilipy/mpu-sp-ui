@@ -1,5 +1,5 @@
 import http from "../../../utils/http"; 
-import { SetorSearch} from "../CadastrarSetor";
+import { SetorSearch} from "..";
 
 export const listarSetores = () => {
     return http

@@ -1,7 +1,7 @@
 import React from "react";
-import Input from "../../compenentes-compartilhados/Input/Input";
-import Button from "../../compenentes-compartilhados/Button/Button";
-import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import Input from "@compartilhados/Input";
+import Button from "@compartilhados/Button";
+import Conteudo from "@compartilhados/Conteudo";
 import './TramitarDoc.css'
 import { Grid } from "@mui/material";
 import MensagemDeAlerta from "./MensagemDeAlerta/MensagemDeAlerta";

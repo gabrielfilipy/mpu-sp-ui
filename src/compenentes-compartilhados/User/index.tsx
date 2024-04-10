@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Grid } from '@mui/material' 
-import Input from '../Input/Input'
-import Button from '../Button/Button';
-import ModalDoc from './ModalDoc/ModalDoc';
+import Input from '../Input'
+import Button from '../Button';
+import ModalDoc from './ModalDoc';
 import './User.css'
 
 function User () {

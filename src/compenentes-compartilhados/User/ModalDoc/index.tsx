@@ -1,6 +1,6 @@
 import React from 'react';
 import './ModalDoc.scss'
-import Button from '../../Button/Button';
+import Button from '../../Button';
 import { Input } from '@mui/material';
 
 export class UsuarioSearch {

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Conteudo from '../../../compenentes-compartilhados/Conteudo/Conteudo'
+import Conteudo from '../../../compenentes-compartilhados/Conteudo'
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import InputGroup from '../../../compenentes-compartilhados/InputGroup/InputGroup'
+import InputGroup from '../../../compenentes-compartilhados/InputGroup'
 import { Link } from 'react-router-dom';
 import './TabelaUsuario.scss'
-import Button from '../../../compenentes-compartilhados/Button/Button';
+import Button from '../../../compenentes-compartilhados/Button';
 import { buscarUsuarios, listarUsuarios } from '../Servico/usuario.service';
 import Swal from 'sweetalert2';
 

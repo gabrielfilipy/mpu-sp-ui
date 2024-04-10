@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './component/App/App';
-import Header from './component/Header/Header';
+import App from '@componentes/App';
+import Header from '@componentes/Header';
 import { BrowserRouter } from 'react-router-dom';
-import SubHeader from './component/SubHeader/SubHeader';
+import SubHeader from '@componentes/SubHeader';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

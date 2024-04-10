@@ -1,5 +1,5 @@
 import http from "../../../utils/http"; 
-import { OrgaoSearch} from "../CadastrarOrgao";
+import { OrgaoSearch} from "..";
 
 export const listarOrgaos = () => {
     return http

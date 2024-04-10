@@ -1,13 +1,13 @@
 import React, {  useEffect, useState } from 'react';
-import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo'
-import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup'
+import Conteudo from '@compartilhados/Conteudo'
+import InputGroup from '@compartilhados/InputGroup'
 import './Mesa.css'
-import TableMesa from './Table/TableMesa';
-import Button from '../../compenentes-compartilhados/Button/Button';
+import TableMesa from './Table';
+import Button from '@compartilhados/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import FolderCopyIcon from '@mui/icons-material/FolderCopy';
 import { buscarDocumento } from './Servico/documento.servico';
-import Modal from './Modal/Modal';
+import Modal from './Modal';
 import Swal from 'sweetalert2';
 import Cookies from 'universal-cookie'; 
 
