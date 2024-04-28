@@ -8,6 +8,7 @@ import './FormularioUsuario.css'
 import { buscarUsuarioPorId, cadastrarUsuario, editarUsuario } from "./Servico/usuario.service";
 import Swal from "sweetalert2";
 import { Link, useParams } from "react-router-dom";
+import DualInputWithButton from "../../compenentes-compartilhados/Input/DualInputWithButtonProps";
 
 export class Usuario {
     id?: string
@@ -99,7 +100,7 @@ function FormularioUsuario() {
                        validation={(value) => value.length > 0}
                        errorMessage="O nome completo é obrigatório!"
                     />
-            </Grid>
+             </Grid>
             <Grid container spacing={2}>
                 <Grid item xs={6} sm={4}>
                     <Input 

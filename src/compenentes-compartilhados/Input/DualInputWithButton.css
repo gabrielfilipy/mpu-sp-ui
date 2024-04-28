@@ -1,0 +1,28 @@
+.combined-input {
+    width: 15px;
+}
+
+.input-element {
+    width: 200px; /* Defina a largura desejada */
+    margin-bottom: 10px;
+  }  
+  
+  .input-label--left,
+  .input-label--right {
+    width: 10px; /* Ajuste conforme necessário */
+    text-align: right;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+  
+  .input-button {
+    width: 100px; /* Defina a largura desejada */
+    margin-left: -80px; /* Ajuste a margem conforme necessário */
+    vertical-align: top;
+  }
+  
+  .btn-secondary {
+    background-color: #808080;
+    color: #fff;
+    border-color: #808080;
+  }

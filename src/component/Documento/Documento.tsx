@@ -10,6 +10,7 @@ import parse from 'html-react-parser';
 import Autocomplete from '@mui/material/Autocomplete';
 import Swal from "sweetalert2";
 import ModalComponent from "../../compenentes-compartilhados/Modal/Modal";
+import DualInput from "../../compenentes-compartilhados/Input/DualInputWithButtonProps";
 
 export class DocumentoModel {
     sigla?: string
@@ -90,6 +91,19 @@ function Documento() {
                       foiSelecionadoUmModelo(value)
                     }}
                   />
+                   <Grid item xs={6} sm={4}>
+                  <DualInput
+                     label1="Nome"
+                     name1="nome"
+                     placeholder1="Digite o nome"
+                     label2="Descrição"
+                     name2="descricao"
+                     placeholder2="Digite a descrição"
+                     buttonText="..."
+                     onButtonClick={() => {
+                    }}
+                  />
+                  </Grid>
                 </Grid> 
                 <Grid item xs={12} sm={6}>
                   <p className="descricao-completa-modelo">{ descricaoDetalhadaModelo }</p>
