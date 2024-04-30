@@ -1,0 +1,27 @@
+.container-pai {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: -10px;
+}
+
+.conteiner-filho1,
+.conteiner-filho2 {
+  margin-right: 85px;
+  margin-bottom: 10px;
+}
+
+.conteiner-filho2 {
+  margin-left: -28px;
+}
+
+@media (max-width: 600px) {
+  .container-pai {
+    flex-direction: column;
+  }
+  .conteiner-filho1,
+  .conteiner-filho2 {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
