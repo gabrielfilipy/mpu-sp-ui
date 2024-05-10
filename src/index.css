@@ -14,7 +14,8 @@ code {
 
 :root {
   --cor-padrao: #0277bd;
-  --sub-cor-padrao:#cfd8dc  ;
+  --sub-cor-padrao:#cfd8dc;
+  --sub-cor-padrao-button: #6c757d;
 }
 
 .left {
@@ -36,5 +37,10 @@ code {
   background-color: pink;
 }
 
+@media screen and (max-width: 400px) {
 
- 
+  body {
+    font-size: 12px;
+  }
+
+}
