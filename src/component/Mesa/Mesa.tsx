@@ -21,7 +21,7 @@ function Mesa() {
         }
     }, [navigate]);
     
-    const [documento, setDocumento] = useState("")
+    const [siglaDocumento, setSiglaDocumento] = useState("")
     const [showAccordion1, setAccordion1] = useState(true)
     const [showAccordion2, setAccordion2] = useState(false)
     const [showAccordion3, setAccordion3] = useState(false)
@@ -51,15 +51,17 @@ function Mesa() {
         }
     }
 
-    //Buscar documento
-    async function buscarDocumentoPelaSigla(sigla:string) {
+    async function buscarDocumentoPelaSigla(sigla: any): Promise<boolean> {
         try {
-            const _documento = await buscarDocumento(sigla)
-            setDocumento(_documento.sigla)
+            const _documento = await buscarDocumento(sigla);
+            setSiglaDocumento(_documento.sigla);
             setOpen(true);
-        } catch(err) {
-            if (err instanceof Error) 
-              Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
+            return true; // Indica sucesso
+        } catch (err: any) {
+            if (err instanceof Error) {
+                await Swal.fire('Atenção!', err.message, 'error');
+            }
+            return false; // Indica falha
         }
     }
 
@@ -69,11 +71,18 @@ function Mesa() {
         setOpen(false);
     };
 
+    async function redirecionaVisualizarDocumento() {
+        const sucesso = await buscarDocumentoPelaSigla(siglaDocumento);
+        if (sucesso) {
+            navigate(`/visualizar-documento/${siglaDocumento}`);
+        }
+    }
+
     return <Conteudo >
             <div className='HeaderMesa'>
                 <h2>Mesa virtual <FolderCopyIcon /> </h2>
                 <div className='left'>
-                    <InputGroup onChange={ (e) => setDocumento(e.target.value) } onClick={ () => buscarDocumentoPelaSigla(documento)}placeholder='Buscar Documento'></InputGroup>
+                    <InputGroup onChange={ (e) => setSiglaDocumento(e.target.value) } onClickButton={ () => redirecionaVisualizarDocumento()} placeholder='Buscar Documento'></InputGroup>
                 </div>
                 <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
                 <div className="clear"></div>
@@ -108,7 +117,7 @@ function Mesa() {
             onClose={handleClose}
             titulo='Desaja visualizar esse documento?'
             tituloHeader='Visualizar documento'
-            siglaDocumento={documento}
+            siglaDocumento={siglaDocumento}
         />
         </Conteudo>
 }
