@@ -52,6 +52,9 @@ function Mesa() {
     }
 
     async function buscarDocumentoPelaSigla(sigla: any): Promise<boolean> {
+        if(!sigla){
+            return false;
+        }
         try {
             const _documento = await buscarDocumento(sigla);
             setSiglaDocumento(_documento.sigla);
