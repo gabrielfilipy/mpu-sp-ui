@@ -15,6 +15,7 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 import ModalComponent from '../../compenentes-compartilhados/Modal/Modal';
 
+
 export class DepartmentActive {
     active?: boolean;
 }

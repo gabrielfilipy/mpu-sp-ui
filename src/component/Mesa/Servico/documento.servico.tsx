@@ -1,6 +1,8 @@
 
-import http from "../../../utils/http"; 
+import http from "../../../utils/http-document"; 
 import { DocumentoModel } from "../../Documento/Documento"; 
+
+const baseURL = '/v1/mobil'
 
 export const listarDocumentos = () => {
     return http
@@ -10,7 +12,7 @@ export const listarDocumentos = () => {
 
 export const buscarDocumento = (sigla:string) => {
     return http
-        .get(`/documento/${sigla}/buscar`)
+        .get(`${baseURL}/buscar/${sigla}/sigla`)
         .then(response => response.data); 
 }   
 
