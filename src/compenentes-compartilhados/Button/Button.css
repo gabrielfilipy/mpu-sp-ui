@@ -29,9 +29,11 @@
 .AppButtonCreate{
     background-color: #1b5e20;
 }
+
 @media(max-width:480px){
     .AppButton{
-        font-size: 14px;
-        height: 32px;
+        font-size: 12px;
+        font-weight: bold;
+        height: 35px;
     }
 }

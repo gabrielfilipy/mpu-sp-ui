@@ -39,7 +39,7 @@ function Header() {
 
                <button  className='buttondoheader' onClick={() => setShowMenu(true)}> 
                     <CloseIcon sx={{ color: 'white' }} fontSize="small" />
-                    </button> 
+                </button> 
 
                 <li className="navbar-usuario">Loiane Moskviq</li>
                 <li className="navbar-menu-item"><Link to="/mesa-virtual">Home</Link></li>  

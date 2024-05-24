@@ -8,7 +8,6 @@
     display: flex;
 }
 
-
 .accordion-heading {
     margin-bottom: 8px;
     padding: 10px;
@@ -28,10 +27,12 @@
 }
 
 @media(max-width:410px){
+
     .left{
-        width: 170px;
+        width: 140px;
         justify-content: space-between;
     }
+
 }
 
 

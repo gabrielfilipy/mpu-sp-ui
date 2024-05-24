@@ -4,6 +4,7 @@
     background-color: var(--sub-cor-padrao);
     color: white;
 }
+
 .MenuSubHeader{
     display: flex;
     justify-content: space-between;
@@ -15,6 +16,7 @@
     align-items: center;
     color: white;
 }
+
 .Avatar {
     text-align: right;
     cursor: pointer;
@@ -29,11 +31,20 @@
 .Logo {
     width: 60px;
 }
-@media(max-width:1043px){
-    .Ambiente{
-        margin-left: 20px;
+
+@media(max-width:410px){
+
+    .MenuSubHeader{
+        margin-left: 5px;
+        margin-right: 5px;
+        display: list-item;
+        justify-content: space-between;
+        align-items: center;
     }
-    .Container2{
-        margin-right: 20px;
+
+    .Container2 Button {
+        width: 70px;
+        margin-left: auto;
     }
+
 }

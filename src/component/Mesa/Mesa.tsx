@@ -26,6 +26,7 @@ function Mesa() {
     const [showAccordion2, setAccordion2] = useState(false)
     const [showAccordion3, setAccordion3] = useState(false)
     const [showAccordion4, setAccordion4] = useState(false)
+    const [tipoDocumento, setTipoDocumento] = useState('CRIACAO');
 
     function handleClick (ids:any) {
         if(ids === 1) {
@@ -33,21 +34,25 @@ function Mesa() {
             setAccordion2(false)
             setAccordion3(false)
             setAccordion4(false)
+            setTipoDocumento('CRIACAO');
         } else if(ids === 2) { 
             setAccordion1(false)
             setAccordion2(true)
             setAccordion3(false)
             setAccordion4(false)
+            setTipoDocumento('ANEXACAO');
         } else if(ids === 3) { 
             setAccordion1(false)
             setAccordion2(false)
             setAccordion3(true)
             setAccordion4(false)
+            setTipoDocumento('RECEBIMENTO');
         } else if(ids === 4) { 
             setAccordion1(false)
             setAccordion2(false)
             setAccordion3(false)
             setAccordion4(true)
+            setTipoDocumento('TRANSFERENCIA');
         }
     }
 
@@ -84,34 +89,34 @@ function Mesa() {
     return <Conteudo >
             <div className='HeaderMesa'>
                 <h2>Mesa virtual <FolderCopyIcon /> </h2>
-                <div className='left'>
-                    <InputGroup onChange={ (e) => setSiglaDocumento(e.target.value) } onClickButton={ () => redirecionaVisualizarDocumento()} placeholder='Buscar Documento'></InputGroup>
+                <div className='left GroupButton'>
+                    <InputGroup onChange={ (e) => setSiglaDocumento(e.target.value) } onClickButton={ () => redirecionaVisualizarDocumento()} placeholder='Buscar'></InputGroup>
                 </div>
-                <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
+                <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button className='BtnCriarDocumento' value='Criar Documento' color='create'></Button></Link>
                 <div className="clear"></div>
             </div>
             <div className="accordion-heading" onClick={() => handleClick(1) } >Documentos criados</div>
             {showAccordion1 && (
                 <div className="accordion-content" >
-                    <TableMesa></TableMesa>
+                    <TableMesa tipoDocumento={tipoDocumento}></TableMesa>
                 </div>
             )}
             <div className="accordion-heading" onClick={() =>  handleClick(2) } >Documentos recebidos</div>
             {showAccordion2 && (
                 <div className="accordion-content" >
-                    <TableMesa></TableMesa>
+                    <TableMesa tipoDocumento={tipoDocumento}></TableMesa>
                 </div>
             )}
             <div className="accordion-heading" onClick={() => handleClick(3)} >Documentos tramitados</div>
             {showAccordion3 && (
                 <div className="accordion-content" >
-                    <TableMesa></TableMesa>
+                    <TableMesa tipoDocumento={tipoDocumento}></TableMesa>
                 </div>
             )}
             <div className="accordion-heading" onClick={() => handleClick(4)} >Documentos assinados</div>
             {showAccordion4 && (
                 <div className="accordion-content" >
-                    <TableMesa></TableMesa>
+                    <TableMesa tipoDocumento={tipoDocumento}></TableMesa>
                 </div>
             )}
         <Modal

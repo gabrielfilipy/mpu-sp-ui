@@ -34,6 +34,7 @@ function SubHeader() {
     return <div className="AppSubHeader" hidden={ exibindoNavbar() }>
                 <Conteudo>
                     <div className="MenuSubHeader">
+                        
                         <div className="Ambiente">
                             <p>Ambiente de <b>desenvolvimento</b></p>
                         </div>
@@ -42,6 +43,7 @@ function SubHeader() {
                             <Chip className="Avatar" color={"primary"} avatar={<Avatar sx={{ background: '#212121' }}><p style={{color: 'white'}}>{nameUser.substring(0,1).toUpperCase()}</p></Avatar>} label={nameUser} />
                             <Button onClick={() => logout()} value="Sair" color="danger"  />
                         </div> 
+
                     </div>
                 </Conteudo>
         </div>

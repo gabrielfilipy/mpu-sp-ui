@@ -1,23 +1,100 @@
-.buttons{
-    margin-top: 15px;
-    width: 100%;
-    position: relative;
-    left: 40%;
-}
-.box{
-   position: absolute;
-   width: 40%;
-   right: 30%;
-}
-.InputeButton{
-    position: relative;
-    left:10%;
+
+.bg {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.LoginForm {
+.box {
     width: 100%;
-    max-width: 400px;
-    background-color: red;
-    padding: 20px;
+    padding: 20px 2%;
+    max-width: 500px;
+    background: white;
+    border: 0.1em solid #eeeeee;
+    border-radius: 6px;
     box-sizing: border-box;
+    text-align: center;
+}
+
+.box-header img {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.box-header p {
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+.box-footer {
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.box-footer a {
+    text-decoration: none;
+    font-weight: lighter;
+    font-size: 12px;
+    color: black;
+}
+
+.box-login {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-top: 8px;
+}
+
+#MatriculaUser, #PasswordUser {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box; 
+}
+
+.btn-entrar {
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+    background-color: #4CAF50;
+    color: white; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin-left: 0 !important;
+    margin-top: 10px;
+}
+
+.btn-entrar:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 700px) {
+
+    .bg {
+        min-height: 100vh;
+        min-width: 0vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    
+    .box {
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .box-footer {
+        width: 90%;
+    }
 }

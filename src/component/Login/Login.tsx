@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { Grid } from '@mui/material';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
+import LogoImage from '../../assets/logo.png';
 
 declare interface LoginProps {
     titulo?: string
@@ -48,33 +49,41 @@ function Login(props: LoginProps) {
         }    
     }
     
-    return <Conteudo>
-        <div className="box" hidden={ props.titulo ? props.hidden : false }>
-           
-                <Form titulo={ props.titulo ? props.titulo : "Login"  }
-                    onSubmit={ enviarFormulario }>
-                    <div className="InputeButton">
-                <Grid container spacing={1}>
-                <Grid item xs={9}>
-                    <Input label='Login:'
-                    onChange={ (e) => setMatricula(e.target.value)} />
-                    </Grid>
-                    
-                    <Grid item xs={9}>
-                    <Input label='Senha:'
-                    onChange={ (e) => setPassword(e.target.value) }/>
-                    </Grid>
-                    <Grid item xs={5}>
-                        <div className="buttons">
-                            <Button>{ "Logar" }</Button>
+    return <div className='bg'>
+            <div className="box">
+                <div className="box-header">
+                <img style={{ width: '60px', filter: 'grayscale(100%)' }} src={LogoImage} alt="Logo" />
+
+                    <p>Por favor, faça o login.</p>
+                </div>
+
+                <div className="box-login">
+                    <form onSubmit={ enviarFormulario }>
+                        <label htmlFor="Matrícula">Matrícula:</label>
+                        <input
+                            type="text"
+                            id="MatriculaUser"
+                            onChange={ (e) => setMatricula(e.target.value)}
+                        />
+                        <label htmlFor="SenhaUser">Senha:</label>
+                        <input
+                            type="password"
+                            id="PasswordUser"
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        
+                        <div >
+                        <button className='btn-entrar' type="submit">Login</button>
                         </div>
-                    </Grid>
-                    </Grid>
-                    </div>
-                </Form>
+                    </form>
+                </div>
+
+                <div className="box-footer">
+                    <a href="#">Esqueceu sua senha?</a>
+                </div>
+                
+            </div>
         </div>
-        
-    </Conteudo>
 }
 
 export default Login
