@@ -10,11 +10,19 @@ export const listarDocumentos = () => {
         .then(response => response.data); 
 }
 
-export const buscarDocumento = (sigla:string) => {
-    return http
-        .get(`${baseURL}/buscar/${sigla}/sigla`)
-        .then(response => response.data); 
-}   
+export const buscarDocumento = async (sigla: string) => {
+    try {
+        const response = await http.get(`${baseURL}/buscar/${sigla}/sigla`);
+        return response.data;
+    } catch (error: any) { 
+        if (error.response && error.response.status === 404) {
+            const errorDetail = error.response.data.detail || 'O documento informado não existe.';
+            throw new Error(errorDetail);
+        } else {
+            throw error; // Outro tipo de erro, lançamos novamente
+        }
+    }
+};
 
 export const cadastrarDocumento = (documento: DocumentoModel) => {
     http.post('/documento/cadastro', documento)
