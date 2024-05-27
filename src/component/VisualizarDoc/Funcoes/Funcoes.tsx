@@ -84,16 +84,6 @@ function Funcoes(props: FuncoesProp) {
          
         </Grid>
 
-            <Assinar
-                selectedValue={'selectedValue'}
-                open={openAssinar}
-                onClose={handleClose}
-                titulo='Qual forma de assinatura?'
-                tituloHeader='Assinar documento'
-                radius={true}
-                codigoDocumento={ props.codigoDocumento }
-            />
-
             <Incluir
                 selectedValue={'selectedValue'}
                 open={openIncluir}

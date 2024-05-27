@@ -10,12 +10,13 @@ import moment from 'moment';
 
 interface TableMesaProps {
     tipoDocumento: string;
+    pessoaRecebedoraId?: number;
+    subscritorId?: string;
 }
 
-const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento }) => {
+const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId, subscritorId }) => {
     const SIZE_LIST = 5
     const [ documentos, setDocumentos ] = useState([])
-    const [ userId, setUserId] = useState ('');
     const cookies = new Cookies();
     
      /**PAGINAÇÃO */
@@ -25,20 +26,11 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento }) => {
      const handleChange = (event: React.ChangeEvent<unknown>, page: number) => {
             setPageActual(page - 1)
         };
-
-    useEffect(() => {
-        const token = cookies.get('Token');
-        if (!token) {
-            return 
-        }
-        const object = JSON.parse(atob(token.split('.')[1]))
-        setUserId (object['sub']);
-    }, [cookies]);
     
     async function fetchData() {
         try {
-            if (!userId) return;
-        const _documentos = await buscarMovimentosPorTipo(userId, tipoDocumento, pageActual, SIZE_LIST)
+            if (!subscritorId) return;
+        const _documentos = await buscarMovimentosPorTipo(subscritorId , pessoaRecebedoraId, tipoDocumento, pageActual, SIZE_LIST)
         setDocumentos(_documentos.content)
         setNumberPage(_documentos.number)
         setTotalPage(_documentos.totalPages)
@@ -51,7 +43,7 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento }) => {
 
     useEffect(() => {
         fetchData();
-    }, [userId, pageActual, tipoDocumento]);
+    }, [subscritorId, pageActual, tipoDocumento]);
 
     function calculaData(date: Date): string {
         const dia = date.getDate().toString().padStart(2, '0');

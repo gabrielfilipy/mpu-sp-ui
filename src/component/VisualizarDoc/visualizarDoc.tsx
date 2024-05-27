@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import { Grid } from "@mui/material";
 import './VisualizarDoc.css'
@@ -6,11 +6,14 @@ import LogoDoc from "./Files/logo-prefeitura.png"
 import Funcoes from "./Funcoes/Funcoes";
 import Box from "../../compenentes-compartilhados/Box/Box";
 import { useParams } from "react-router";
+import parse from 'html-react-parser';
+import { buscarMobilPorSigla } from '../Documento/Service/Service';
 
 function VisualizarDoc () {
 
     //Recebendo código do documento por parâmetro.
     const { codigo } = useParams();
+    const [html, setHtml] = useState("");
 
     var codigoDocumento = codigo
     var lista = ['Steve Jobs', 'Donal Trump'] 
@@ -18,6 +21,22 @@ function VisualizarDoc () {
     var interessado = 'Interessado fssnfsfnsf'
     var assunto = 'Assunto csfcsvvvdvdvkndvkdnvdnvvndvnkn'
     var userName = 'Marcus'
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const mobil = await buscarMobilPorSigla(codigoDocumento);
+                if (mobil) {
+                    setHtml(mobil.documento.file);
+                }
+            } catch (error) {
+                console.error('Erro ao buscar documento:', error);
+            }
+        };
+
+        fetchData();
+    }, [codigoDocumento]);
+
     return <Conteudo>
 
     <h2>{ codigoDocumento }</h2>
@@ -28,24 +47,7 @@ function VisualizarDoc () {
        
             <Grid item xs={7}sm={9}>
                 <div className="VisuDoc" >
-
-                    <div className="HeaderDocumento">
-                        <img className="LogoDoc" src={LogoDoc} alt="Logo do VisuDoc" />
-                        <div className="Texto">
-                            <b>Detran</b>
-                        </div>
-                    </div>
-                    
-                    <div className="body">
-                        <p><b>Número de Referência: </b>{ descricao }</p>
-                        <p><b>Interessado: </b>{ interessado }</p>
-                        <p><b>Assunto: </b>{ assunto }</p>
-                    </div>
-
-                    <div className="footer">
-                        { userName }
-                        <p>Unidade</p>
-                    </div>
+                { parse(html) }
                 </div>
                 
             </Grid>
@@ -54,10 +56,7 @@ function VisualizarDoc () {
                 <Box array={ lista } titulo="Cossignatários"/>
             </Grid>
                
-        </Grid>
-              
-               
-        
+        </Grid>        
 </Conteudo>
 
 }

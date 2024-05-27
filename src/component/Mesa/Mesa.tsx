@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 import Cookies from 'universal-cookie'; 
 
 function Mesa() {
+
+    const [ subscritorId, setSubscritorId] = useState ('');
     const cookies = new Cookies();
     const navigate = useNavigate();
     useEffect(() => {
@@ -86,6 +88,15 @@ function Mesa() {
         }
     }
 
+    useEffect(() => {
+        const token = cookies.get('Token');
+        if (!token) {
+            return 
+        }
+        const object = JSON.parse(atob(token.split('.')[1]))
+        setSubscritorId (object['sub']);
+    }, [cookies]);
+
     return <Conteudo >
             <div className='HeaderMesa'>
                 <h2>Mesa virtual <FolderCopyIcon /> </h2>
@@ -98,7 +109,7 @@ function Mesa() {
             <div className="accordion-heading" onClick={() => handleClick(1) } >Documentos criados</div>
             {showAccordion1 && (
                 <div className="accordion-content" >
-                    <TableMesa tipoDocumento={tipoDocumento}></TableMesa>
+                    <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
                 </div>
             )}
             <div className="accordion-heading" onClick={() =>  handleClick(2) } >Documentos recebidos</div>
