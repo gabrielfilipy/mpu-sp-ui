@@ -21,6 +21,7 @@ import CadastrarOrgao from '../CadastrarOrgao/CadastrarOrgao';
 import FormularioOrgao from '../Orgao/FormularioOrgao';
 import EditarDocumento from '../EditarDocumento/Editar';
 import NaoAutorizado from '../NaoAutorizado/NaoAutorizado';
+import Incluir from '../Incluir-Consignatario/Incluir';
 
 function App() { 
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path="/cadastro-orgao" element={<CadastrarOrgao />} ></Route>
           <Route path="/editar-documento" element={<EditarDocumento />} ></Route>
           <Route path='/nao-autorizado' element={<NaoAutorizado />}></Route>
+          <Route path='/Incluir-Consignatario' element={<Incluir />}></Route>
         </Routes>
     </div>
     

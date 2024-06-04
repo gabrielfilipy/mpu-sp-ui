@@ -69,7 +69,9 @@ function Funcoes(props: FuncoesProp) {
             </Grid>
             
             <Grid item xs={4}sm={2.4}> 
-                <Button onClick={handleIncluirClick}>Incluir Cossignatário</Button>
+                <Link to="/Incluir-Consignatario">
+                    <Button>Incluir Cossignatário</Button>
+                </Link>
             </Grid>
             <Grid item xs={4}sm={2.4}> 
                 <Link to="/visualizar-documento-completo">
@@ -83,14 +85,6 @@ function Funcoes(props: FuncoesProp) {
             </Grid>
          
         </Grid>
-
-            <Incluir
-                selectedValue={'selectedValue'}
-                open={openIncluir}
-                onClose={handleClose}
-                titulo='Incluir Consignatário'
-                radius={true}
-            />
     </div>
 
 }

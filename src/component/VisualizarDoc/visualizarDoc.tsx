@@ -23,6 +23,10 @@ function VisualizarDoc () {
     var userName = 'Marcus'
 
     useEffect(() => {
+        localStorage.clear();
+      }, [])
+
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 const mobil = await buscarMobilPorSigla(codigoDocumento);

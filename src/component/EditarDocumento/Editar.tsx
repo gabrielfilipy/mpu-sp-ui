@@ -6,7 +6,7 @@ import './Editar.css';
 import { Grid } from "@mui/material";
 import Button from "../../compenentes-compartilhados/Button/Button";
 import { Link } from "react-router-dom";
-import User from "../../compenentes-compartilhados/User/User";
+import SharedInput from "../../compenentes-compartilhados/SharedInput/SharedInput";
 
 export class DocumentoModel {
     sigla?: string
@@ -27,8 +27,11 @@ function EditarDocumento() {
                 <Grid item xs={6}>
                     <Input label="Meus textos padrões"/>
                 </Grid>
-
-                <User />
+                <Grid item xs={12}>
+                <SharedInput 
+                   label="Responsável pela assinatura" 
+                  />
+            </Grid>
 
             </Grid>
             <Input label="Interessado"/>

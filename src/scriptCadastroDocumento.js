@@ -1,5 +1,11 @@
-
-const documentoForm = document.getElementById('documentoForm');
+document.documentElement.setAttribute('translate', 'no');
+const metaTag = document.createElement('meta');
+metaTag.name = 'google';
+metaTag.content = 'notranslate';
+document.head.appendChild(metaTag);
+ 
+ const documentoForm = document.getElementById('documentoForm');
+ documentoForm.setAttribute('translate', 'no');
 
 var idUsuario;
 
@@ -7,6 +13,7 @@ var idUsuario;
     var campoNomeCompleto = document.getElementById('NomeClompletoUsuario');
   
     campoMatricula.addEventListener('blur', function() {
+      
         var matricula = campoMatricula.value;
 
         var xhr = new XMLHttpRequest();
@@ -33,10 +40,10 @@ var idUsuario;
 
 
 
-  documentoForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+    const btnCriar = document.querySelector('.BtnCriar');
+    btnCriar.addEventListener('click', function(event) {
+      event.preventDefault() 
 
-    
     let descricao = ''; 
 
   // Itera sobre todos os elementos do formulário
@@ -44,7 +51,7 @@ var idUsuario;
   // Verifica se o elemento é um input ou textarea e tem um ID e um valor
   if ((input.tagName === 'INPUT' || input.tagName === 'TEXTAREA') && input.id && input.value) {
     // Adiciona o ID e o valor do input à descrição
-    descricao += `${input.id}: ${input.value}; `;
+    descricao += `${input.id}: ${input.value}# `;
   }
 }
     const modelId = document.getElementById('Modelo').value;
@@ -56,13 +63,13 @@ var idUsuario;
         modelId: modelId
       }
     };
-   console.log(data)
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost:8085/v1/documento/cadastrar');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = () => {
       if (xhr.status === 201) {
-           alert("Formulário enviado com sucesso!");
+        const jsonObject = JSON.parse(xhr.response);
+        localStorage.setItem('SIGLA_DOCUMENTO', jsonObject.mobil.sigla);
       } else {
         // Lógica para lidar com outros códigos de status de resposta, se necessário
       }
