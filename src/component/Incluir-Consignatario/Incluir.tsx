@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import Button from '../../compenentes-compartilhados/Button/Button';
 import './Incluir.css'
@@ -6,19 +6,37 @@ import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
 import Form from '../../compenentes-compartilhados/Form/Form';
 import Input from '../../compenentes-compartilhados/Input/Input';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SharedInput from '../../compenentes-compartilhados/SharedInput/SharedInput';
 import ModalIncluir from '../../compenentes-compartilhados/SharedInput/ModalIncluir/ModalIncluir';
-import { IncluirCossignatario } from './Servico/ServiceT';
+import { incluircossignatario } from './Servico/ServiceT';
+import Cookies from 'universal-cookie';
 
 export class Cossignatario {
-  matricula?: string; 
+  subscritorId?: string
+  pessoaRecebedoraId?: string
 }
 
 function Incluir() {
-  const cossignatario = new Cossignatario();
+  const [subscritorId, setSubscritorId] = useState('');
+  const [pessoaRecebedoraId, setPessoaRecebedoraId] = useState('');
+  const location = useLocation();
+  const siglaDocumento = location.state?.siglaDocumento;
+  
   const [matricula, setMatricula] = useState('');
+  const [nome, setNome] = useState('');
+  const [departmentId, setDepartmentId] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+  const cookies = new Cookies();
+
+  useEffect(() => {
+    const token = cookies.get('Token');
+    if (!token) {
+      return;
+    }
+    const object = JSON.parse(atob(token.split('.')[1]));
+    setSubscritorId(object['sub']);
+  }, [cookies]);
 
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -28,65 +46,79 @@ function Incluir() {
     setModalOpen(false);
   };
 
-  function enviarFormulario(e:any) {
-    e.preventDefault();
+  const handleIncluir = async (event: any) => {
+    event.preventDefault();
 
-    if (!matricula) {
-      alert('É obrigatório preencher o campo de matrícula!');
+    if (!pessoaRecebedoraId) {
       return;
     }
 
-    cossignatario.matricula = matricula;
+    const cossignatario = new Cossignatario();
+    cossignatario.subscritorId = subscritorId;
+    cossignatario.pessoaRecebedoraId = pessoaRecebedoraId;
+
+    console.log('siglaDocumento:', siglaDocumento);
 
     try {
-      IncluirCossignatario()
-      Swal.fire('Sucesso', `O cossignatário com matrícula ${matricula} foi cadastrado com sucesso`, 'success');
+      if (siglaDocumento) {
+        await incluircossignatario(cossignatario, siglaDocumento);
+        Swal.fire('Sucesso', `O cossignatário foi incluído com sucesso`, 'success');
+      } else {
+        Swal.fire('Erro', 'Sigla do documento não encontrada', 'error');
+      }
     } catch (err) {
       if (err instanceof Error) {
         Swal.fire('Oops!', err.message, 'error');
       }
     }
-  }
+  };
 
   return (
     <Conteudo>
       <Form
         titulo={"Inclusão de Cossignatário"}
-        onSubmit={enviarFormulario}
+        onSubmit={handleIncluir}
       >
         <Grid container spacing={2}>
-        <Grid item xs={6}sm={7}>
-        <SharedInput 
-        label="Matrícula" 
-        placeholder="Matrícula"
-        onButtonClick={handleOpenModal}
-      />
-          </Grid>
-          <Grid item xs={6}sm={5}>
-           <Input 
-              label="Função; Lotação; Localidade"
-              onChange={(e) => setMatricula(e.target.value)}
+          <Grid item xs={6} sm={7}>
+            <SharedInput
+              label="Matrícula"
+              placeholder="Matrícula"
+              onButtonClick={handleOpenModal}
               value={matricula}
-              validation={(value) => value.length > 0}
-              errorMessage="A matrícula é obrigatória!"
-               />
-           </Grid>
-
+              disabledValue={nome}
+              onChange={(e) => setPessoaRecebedoraId(e.target.value)}
+            />
+          </Grid>
+          <Grid item xs={6} sm={5}>
+            <Input
+              label="Função; Lotação; Localidade"
+              onChange={(e) => setDepartmentId(e.target.value)}
+              value={departmentId}
+            />
+          </Grid>
         </Grid>
         <Grid container spacing={1}>
-           <Grid item xs={4}sm={3}>
-               <Button>
-                   Incluir  
-               </Button> 
-           </Grid>
-               <Grid item xs={4}sm={3}>
-                 <Link className='BtnCriarDocumento AppCriarDocumento' to="/visualizar-documento"><Button value="Voltar" color="grey" /></Link>
-                </Grid>
-       </Grid>
+          <Grid item xs={4} sm={3}>
+            <Button type="submit">Incluir</Button>
+          </Grid>
+          <Grid item xs={4} sm={3}>
+            <Link className='BtnCriarDocumento AppCriarDocumento' to="/visualizar-documento">
+              <Button value="Voltar" color="grey" />
+            </Link>
+          </Grid>
+        </Grid>
       </Form>
-      <ModalIncluir open={modalOpen} handleClose={handleCloseModal} />
+      <ModalIncluir
+        open={modalOpen}
+        handleClose={handleCloseModal}
+        setMatricula={setMatricula}
+        setNome={setNome}
+        setDepartmentId={setDepartmentId}
+        setPessoaRecebedoraId={setPessoaRecebedoraId}
+      />
     </Conteudo>
   );
 }
 
-export default Incluir
+export default Incluir;

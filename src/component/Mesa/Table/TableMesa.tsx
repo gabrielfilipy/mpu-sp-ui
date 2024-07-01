@@ -93,7 +93,7 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId
                         <tr key={index}>
                             <td>{calculaDiferenca(new Date(listValue.dateCreate))}</td>
                             <td><Link to={
-                                {pathname: `/visualizar-documento/${listValue.sigla}`}
+                                {pathname: `/visualizar-documento/${listValue.siglaMobil}`}
                                 } >{listValue.siglaMobil}</Link></td>
                             <td>{listValue.documento.model.label}</td>
                         </tr>

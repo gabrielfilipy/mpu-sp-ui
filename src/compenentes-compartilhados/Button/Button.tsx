@@ -1,7 +1,7 @@
 import React from "react";
 import './Button.css'
 
-declare interface ButtonProps {
+declare interface ButtonProps extends React.InputHTMLAttributes<HTMLInputElement>{
     content?: string
     className?:string
     onClick?: () => void

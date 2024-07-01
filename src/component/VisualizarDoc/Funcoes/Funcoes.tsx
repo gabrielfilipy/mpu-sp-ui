@@ -4,7 +4,7 @@ import Button from "../../../compenentes-compartilhados/Button/Button";
 import { Grid } from "@mui/material";
 import Assinar from '../../Assinar/Assinar';
 import Swal from 'sweetalert2'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Incluir from '../../Incluir-Consignatario/Incluir';
 
 declare interface FuncoesProp {
@@ -39,6 +39,16 @@ function Funcoes(props: FuncoesProp) {
 
     const [openAssinar, setOpenAssinar] = React.useState(false);
     const [openIncluir, setOpenIncluir] = React.useState(false);
+    const { codigoDocumento } = props;
+    const navigate = useNavigate();
+
+    const handleIncluirConsignatario = () => {
+        if (codigoDocumento) {
+            navigate('/Incluir-Consignatario', { state: { siglaDocumento: codigoDocumento } });
+        } else {
+            Swal.fire('Erro', 'Código do documento não encontrado', 'error');
+        }
+    };
 
     const handleClose = (value: string) => {
         setOpenAssinar(false);
@@ -69,9 +79,7 @@ function Funcoes(props: FuncoesProp) {
             </Grid>
             
             <Grid item xs={4}sm={2.4}> 
-                <Link to="/Incluir-Consignatario">
-                    <Button>Incluir Cossignatário</Button>
-                </Link>
+            <Button onClick={handleIncluirConsignatario}>Incluir Cossignatário</Button>
             </Grid>
             <Grid item xs={4}sm={2.4}> 
                 <Link to="/visualizar-documento-completo">
