@@ -1,8 +1,9 @@
 import http from "../../../utils/http"; 
 
-export const listarSetores = () => {
+const baseURL = '/v1/user'
+export const listarUsuario = () => {
     return http
-        .get('/Cadastro-Setor/listar')
+        .get(`${baseURL}/listar`)
         .then(response => response.data); 
 }
 

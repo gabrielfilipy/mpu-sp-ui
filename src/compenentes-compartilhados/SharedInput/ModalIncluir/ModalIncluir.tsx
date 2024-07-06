@@ -11,11 +11,11 @@ import Swal from 'sweetalert2';
 
 interface ModProps {
   open: boolean;
-  handleClose: () => void;
-  setMatricula: (value: string) => void;
-  setNome: (value: string) => void;
-  setDepartmentId: (value: string) => void;
-  setPessoaRecebedoraId: (value: string) => void;
+  handleClose?: () => void;
+  setMatricula?: (value: string) => void;
+  setNome?: (value: string) => void;
+  setDepartmentId?: (value: string) => void;
+  setPessoaRecebedoraId?: (value: string) => void;
 }
 
 const ModalIncluir: React.FC<ModProps> = ({ open, handleClose, setMatricula, setNome, setDepartmentId,setPessoaRecebedoraId}) => {
@@ -70,11 +70,11 @@ const ModalIncluir: React.FC<ModProps> = ({ open, handleClose, setMatricula, set
     }, [pageActual]);
 
     const handleRowClick = (user: any) => {
-        setMatricula(user.matricula);
-        setNome(user.nome);
-        setDepartmentId(user.departmentId);
-        setPessoaRecebedoraId(user.id);
-        handleClose(); 
+        if (setMatricula) setMatricula(user.matricula);
+        if (setNome) setNome(user.nome);
+        if (setDepartmentId) setDepartmentId(user.departmentId);
+        if (setPessoaRecebedoraId) setPessoaRecebedoraId(user.id);
+        if (handleClose) handleClose();
       };
 
     return (

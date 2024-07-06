@@ -43,3 +43,11 @@
     color: white;
     font-size: 13px;
 }
+
+@media(max-width:840px){
+
+    label {
+        font-size: 12px;
+    }
+
+}

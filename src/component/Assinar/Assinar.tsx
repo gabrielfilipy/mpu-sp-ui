@@ -83,12 +83,6 @@ function Assinar(props: SimpleDialogProps) {
         onClose={handleCloseCertificado}
       />
 
-      <Login 
-        hidden={true}
-        titulo='Assinar com senha' 
-        txtBotao={'Assinar'} 
-      />
-
 </>
 
     );

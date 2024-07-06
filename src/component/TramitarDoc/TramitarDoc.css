@@ -1,14 +1,15 @@
-.caixadotramitardoc {
-    width: 100%;
-    height: 450px;
-    border-radius: 0;
-    color: #222;
-    margin-bottom: 15px;
-}
-
 .mensagemdotramitar {
     padding: 15px;
     font-size: 12px;
     text-align: left;
     margin-top: 5%;
+}
+
+.AppInput span {
+    text-transform: uppercase;
+    color: #222;
+    font-size: .8em;
+    height: 15px;
+    letter-spacing: .75px;
+    margin-bottom: 10px; 
 }
