@@ -42,19 +42,19 @@ function Mesa() {
             setAccordion2(true)
             setAccordion3(false)
             setAccordion4(false)
-            setTipoDocumento('ANEXACAO');
+            setTipoDocumento('FINALIZACAO');
         } else if(ids === 3) { 
             setAccordion1(false)
             setAccordion2(false)
             setAccordion3(true)
             setAccordion4(false)
-            setTipoDocumento('RECEBIMENTO');
+            setTipoDocumento('TRAMITAR');
         } else if(ids === 4) { 
             setAccordion1(false)
             setAccordion2(false)
             setAccordion3(false)
             setAccordion4(true)
-            setTipoDocumento('TRANSFERENCIA');
+            setTipoDocumento('ASSINATURA_COM_SENHA');
         }
     }
 
@@ -97,6 +97,7 @@ function Mesa() {
         setSubscritorId (object['sub']);
     }, [cookies]);
 
+
     return <Conteudo >
             <div className='HeaderMesa'>
                 <h2>Mesa virtual <FolderCopyIcon /> </h2>
@@ -112,24 +113,25 @@ function Mesa() {
                     <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
                 </div>
             )}
-            <div className="accordion-heading" onClick={() =>  handleClick(2) } >Documentos recebidos</div>
+            <div className="accordion-heading" onClick={() =>  handleClick(2) } >Documentos finalizados</div>
             {showAccordion2 && (
                 <div className="accordion-content" >
-                    <TableMesa tipoDocumento={tipoDocumento}></TableMesa>
+                   <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
                 </div>
             )}
             <div className="accordion-heading" onClick={() => handleClick(3)} >Documentos tramitados</div>
             {showAccordion3 && (
                 <div className="accordion-content" >
-                    <TableMesa tipoDocumento={tipoDocumento}></TableMesa>
+                   <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
                 </div>
             )}
             <div className="accordion-heading" onClick={() => handleClick(4)} >Documentos assinados</div>
             {showAccordion4 && (
                 <div className="accordion-content" >
-                    <TableMesa tipoDocumento={tipoDocumento}></TableMesa>
+                   <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
                 </div>
             )}
+            
         <Modal
             selectedValue={'selectedValue'}
             open={open}
