@@ -3,6 +3,7 @@ import './TableMesa.scss'
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { buscarMovimentosPorTipo } from "../Servico/ServiceTabela";
+import { recebimentoDocumento } from "../Servico/documento.servico";
 import Cookies from "universal-cookie";
 import { Pagination } from '@mui/material';
 import Conteudo from "../../../compenentes-compartilhados/Conteudo/Conteudo";
@@ -64,6 +65,19 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId
         return `${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
     }
 
+    async function handleRecebimentoDocumentClick(sigla: string) {
+        try {
+            
+            const id = subscritorId || ''; 
+            const result = await recebimentoDocumento(sigla, parseInt(id), pessoaRecebedoraId || 0);
+            //SE QUISER REMOVER A MENSAGEM NO CONSOLE QUANDO É REALIZADO O RECEBIMENTO É SO REMOVER ESSA LINHA DE CÓDIGO!
+            console.log('Documento recebido:', result);
+            
+        } catch (error) {
+            Swal.fire('Erro!', 'Erro ao receber o documento', 'error');
+        }
+    }
+
     function calculaDiferenca(date: Date): string {
         const criacaoDoDocumento = moment(date);
         const agora = moment();
@@ -82,50 +96,46 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId
             return 'Agora mesmo';
         }
     }
-      
 
-    return <Conteudo><table className="AppTable"> 
-        
-        <thead>
-            <tr>
-                <th>Tempo</th>
-                <th>Código do documento</th>
-                <th>Modelo</th>
-            </tr>
-        </thead>
-        <tbody>
-    
-                {
-
-                    documentos.map(( listValue:any, index:any ) => {
-                        return (
+    return (
+        <Conteudo>
+            <table className="AppTable"> 
+                <thead>
+                    <tr>
+                        <th>Tempo</th>
+                        <th>Código do documento</th>
+                        <th>Modelo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {documentos.map((documento: any, index: number) => (
                         <tr key={index}>
-                            <td>{calculaDiferenca(new Date(listValue.dateCreate))}</td>
-                            <td><Link to={
-                                {pathname: `/visualizar-documento/${listValue.siglaMobil}`}
-                                } >{listValue.siglaMobil}</Link></td>
-                            <td>{listValue.documento.model.label}</td>
+                            <td>{calculaDiferenca(new Date(documento.dateCreate))}</td>
+                            <td>
+                                <Link
+                                    to={{ pathname: `/visualizar-documento/${documento.siglaMobil}` }}
+                                    onClick={() => handleRecebimentoDocumentClick(documento.siglaMobil)}
+                                >
+                                    {documento.siglaMobil}
+                                </Link>
+                            </td>
+                            <td>{documento.documento.model.label}</td>
                         </tr>
-                        );
-                    })
+                    ))}
+                </tbody>
+            </table>
 
-                }
-                
-            
-        </tbody>
-    </table>
-
-    <div className="pagination-container">
-            <Pagination 
-                count={totalPage} 
-                page={numberPage + 1} 
-                onChange={handleChange} 
-                variant="outlined" 
-                shape="rounded" 
-                color='primary'/>
-        </div>
-       
-    </Conteudo>
+            <div className="pagination-container">
+                <Pagination 
+                    count={totalPage} 
+                    page={numberPage + 1} 
+                    onChange={handleChange} 
+                    variant="outlined" 
+                    shape="rounded" 
+                    color='primary'/>
+            </div>
+        </Conteudo>
+    );
 };
 
-export default TableMesa
+export default TableMesa;
