@@ -28,6 +28,7 @@ function Mesa() {
     const [showAccordion2, setAccordion2] = useState(false)
     const [showAccordion3, setAccordion3] = useState(false)
     const [showAccordion4, setAccordion4] = useState(false)
+    const [showAccordion5, setAccordion5] = useState(false)
     const [tipoDocumento, setTipoDocumento] = useState('CRIACAO');
 
     function handleClick (ids:any) {
@@ -36,25 +37,36 @@ function Mesa() {
             setAccordion2(false)
             setAccordion3(false)
             setAccordion4(false)
+            setAccordion5(false)
             setTipoDocumento('CRIACAO');
         } else if(ids === 2) { 
             setAccordion1(false)
             setAccordion2(true)
             setAccordion3(false)
             setAccordion4(false)
+            setAccordion5(false)
             setTipoDocumento('FINALIZACAO');
         } else if(ids === 3) { 
             setAccordion1(false)
             setAccordion2(false)
             setAccordion3(true)
             setAccordion4(false)
+            setAccordion5(false)
             setTipoDocumento('TRAMITAR');
         } else if(ids === 4) { 
             setAccordion1(false)
             setAccordion2(false)
             setAccordion3(false)
             setAccordion4(true)
+            setAccordion5(false)
             setTipoDocumento('ASSINATURA_COM_SENHA');
+        } else if(ids === 5) { 
+            setAccordion1(false)
+            setAccordion2(false)
+            setAccordion3(false)
+            setAccordion4(false)
+            setAccordion5(true)
+            setTipoDocumento('RECEBIMENTO_DOCUMENTO');
         }
     }
 
@@ -123,6 +135,12 @@ function Mesa() {
             )}
             <div className="accordion-heading" onClick={() => handleClick(4)} >Documentos assinados</div>
             {showAccordion4 && (
+                <div className="accordion-content" >
+                    <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
+                </div>
+            )}
+            <div className="accordion-heading" onClick={() => handleClick(5)} >Documentos recebidos</div>
+            {showAccordion5 && (
                 <div className="accordion-content" >
                     <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
                 </div>
