@@ -4,7 +4,7 @@ import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup'
 import './Mesa.css'
 import TableMesa from './Table/TableMesa';
 import Button from '../../compenentes-compartilhados/Button/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import FolderCopyIcon from '@mui/icons-material/FolderCopy';
 import { buscarDocumento } from './Servico/documento.servico';
 import Modal from './Modal/Modal';
@@ -23,6 +23,9 @@ function Mesa() {
         }
     }, [navigate]);
     
+    const [documentoData, setDocumentoData] = useState<any>({})
+    const { sigla } = useParams<{ sigla: string }>();
+    const codigoDocumento = sigla || "";
     const [siglaDocumento, setSiglaDocumento] = useState("")
     const [showAccordion1, setAccordion1] = useState(true)
     const [showAccordion2, setAccordion2] = useState(false)
@@ -30,6 +33,8 @@ function Mesa() {
     const [showAccordion4, setAccordion4] = useState(false)
     const [showAccordion5, setAccordion5] = useState(false)
     const [tipoDocumento, setTipoDocumento] = useState('CRIACAO');
+
+    const [quantidadeDocumentosTramitados, setQuantidadeDocumentosTramitados] = useState(0);
 
     function handleClick (ids:any) {
         if(ids === 1) {
@@ -84,6 +89,25 @@ function Mesa() {
         }
     }
 
+    async function verificarDocumentosTramitados(codigoDocumento: string) {
+        try {
+            const _documentos = await buscarDocumento(codigoDocumento);
+            const documentosTramitados = _documentos.content.filter((documento: { movimentacoes: { typeMovement: string }[] }) => {
+                return documento.movimentacoes.some(mov => mov.typeMovement === 'TRAMITAR');
+            });
+            setQuantidadeDocumentosTramitados(documentosTramitados.length);
+            console.log("Documentos tramitados:", documentosTramitados);
+        } catch (error) {
+            console.error('Erro ao buscar documentos tramitados:', error);
+        }
+    }
+
+    useEffect(() => {
+        if (codigoDocumento) {
+            verificarDocumentosTramitados(codigoDocumento);
+        }
+    }, [codigoDocumento]);
+
     //Modal
     const [open, setOpen] = React.useState(false);
     const handleClose = (value: string) => {
@@ -105,6 +129,7 @@ function Mesa() {
         const object = JSON.parse(atob(token.split('.')[1]))
         setSubscritorId (object['sub']);
     }, [cookies]);
+
 
     return <Conteudo >
             <div className='HeaderMesa'>

@@ -62,6 +62,8 @@ const Finalizar: React.FC<FinalizarProps> = (props) => {
     try {
       const documento = await buscarDocumento(codigoDocumento);
       setDocumentoData({ ...documento, subscritorId: documento.subscritorId });
+      console.log(">>>>>>>>" + documento);
+      console.log(">>>>>>" + documento.subscritorId);
     } catch (error) {
       console.error('Erro ao buscar documento:', error);
     }

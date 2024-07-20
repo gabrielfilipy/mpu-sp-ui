@@ -27,7 +27,7 @@ function SubHeader() {
     }
  
     function exibindoNavbar() {
-        console.log('....exibindoNavbar')
+        
         return location.pathname === '/login' || location.pathname === '/nao-autorizado';
     }
 
