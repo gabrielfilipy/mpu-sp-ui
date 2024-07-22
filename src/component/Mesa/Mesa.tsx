@@ -6,14 +6,19 @@ import TableMesa from './Table/TableMesa';
 import Button from '../../compenentes-compartilhados/Button/Button';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import FolderCopyIcon from '@mui/icons-material/FolderCopy';
-import { buscarDocumento } from './Servico/documento.servico';
+import { buscarDocumento, filtro } from './Servico/documento.servico';
 import Modal from './Modal/Modal';
 import Swal from 'sweetalert2';
-import Cookies from 'universal-cookie'; 
+import Cookies from 'universal-cookie';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import { buscarMovimentosPorTipo } from './Servico/ServiceTabela';
 
 function Mesa() {
 
-    const [ subscritorId, setSubscritorId] = useState ('');
+    const [ subscritorId, setSubscritorId] = useState ();
     const cookies = new Cookies();
     const navigate = useNavigate();
     useEffect(() => {
@@ -35,6 +40,15 @@ function Mesa() {
     const [tipoDocumento, setTipoDocumento] = useState('CRIACAO');
 
     const [quantidadeDocumentosTramitados, setQuantidadeDocumentosTramitados] = useState(0);
+    const [alertaVisible, setAlertaVisible] = useState(false);
+    const [hasDocumentosTramitados, setHasDocumentosTramitados] = useState(false); // Estado para indicar se há documentos tramitados
+    const [load, setLoad] = React.useState(false);
+  const handleCloseLoad = () => {
+    setOpen(false);
+  };
+  const handleOpenLoad = () => {
+    setOpen(true);
+  };
 
     function handleClick (ids:any) {
         if(ids === 1) {
@@ -91,22 +105,21 @@ function Mesa() {
 
     async function verificarDocumentosTramitados(codigoDocumento: string) {
         try {
-            const _documentos = await buscarDocumento(codigoDocumento);
-            const documentosTramitados = _documentos.content.filter((documento: { movimentacoes: { typeMovement: string }[] }) => {
-                return documento.movimentacoes.some(mov => mov.typeMovement === 'TRAMITAR');
-            });
-            setQuantidadeDocumentosTramitados(documentosTramitados.length);
-            console.log("Documentos tramitados:", documentosTramitados);
+            const _documentos = await buscarMovimentosPorTipo("", subscritorId, tipoDocumento, 0, 1);
+            if (_documentos.content.length) {
+                setAlertaVisible(true);
+                setTimeout(() => {
+                    setAlertaVisible(false);
+                }, 5000);
+            }
         } catch (error) {
             console.error('Erro ao buscar documentos tramitados:', error);
         }
     }
 
     useEffect(() => {
-        if (codigoDocumento) {
-            verificarDocumentosTramitados(codigoDocumento);
-        }
-    }, [codigoDocumento]);
+        verificarDocumentosTramitados(codigoDocumento);
+    }, []);
 
     //Modal
     const [open, setOpen] = React.useState(false);
@@ -115,6 +128,7 @@ function Mesa() {
     };
 
     async function redirecionaVisualizarDocumento() {
+        setLoad(true)
         const sucesso = await buscarDocumentoPelaSigla(siglaDocumento);
         if (sucesso) {
             navigate(`/visualizar-documento/${siglaDocumento}`);
@@ -132,8 +146,27 @@ function Mesa() {
 
 
     return <Conteudo >
+        
+            {load &&(
+              <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={open}
+                onClick={handleCloseLoad}
+                >
+                <CircularProgress color="inherit" />
+            </Backdrop>  
+            )}
+
+            {alertaVisible && (
+                <Stack sx={{ width: '100%' }} spacing={2}>
+                    <Alert sx={{ backgroundColor: '#FFFACD', color: '#000000' }} severity="success">
+                        Você possui documentos à receber!
+                    </Alert>
+                </Stack>
+            )}
+
             <div className='HeaderMesa'>
-                <h2>Mesa virtual <FolderCopyIcon /> </h2>
+                <h2>Mesa virtual <FolderCopyIcon /> </h2>   
                 <div className='left GroupButton'>
                     <InputGroup onChange={ (e) => setSiglaDocumento(e.target.value) } onClickButton={ () => redirecionaVisualizarDocumento()} placeholder='Buscar'></InputGroup>
                 </div>
@@ -154,9 +187,13 @@ function Mesa() {
             )}
             <div className="accordion-heading" onClick={() => handleClick(3)} >Documentos tramitados</div>
             {showAccordion3 && (
-                <div className="accordion-content" >
-                    <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
-                </div>
+            <div className="accordion-content">
+            <TableMesa
+                subscritorId={subscritorId}
+                tipoDocumento={tipoDocumento}
+                hasDocumentos={setHasDocumentosTramitados} // Passando a função setHasDocumentosTramitados para TableMesa
+            />
+            </div>
             )}
             <div className="accordion-heading" onClick={() => handleClick(4)} >Documentos assinados</div>
             {showAccordion4 && (
