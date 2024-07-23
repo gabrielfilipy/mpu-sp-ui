@@ -54,8 +54,8 @@ export const excluirDocumento = async (sigla: string, subscritorId: number) => {
   return response.data;
 };
 
-export const recebimentoDocumento = (sigla: string, subscritorId: number, pessoaRecebedoraId: number) => {
-  return http
-   .post(`${baseURLMovimentacoes}/recebimento-documento/${sigla}`, { subscritorId, pessoaRecebedoraId })
-   .then(response => response.data)
+export const recebimentoDocumento = async (sigla: string, subscritorId: number, pessoaRecebedoraId: number) => {
+  const response = await http
+    .post(`${baseURLMovimentacoes}/recebimento-documento/${sigla}`, { subscritorId, pessoaRecebedoraId });
+  return response.data;
 }

@@ -128,11 +128,14 @@ function Mesa() {
     };
 
     async function redirecionaVisualizarDocumento() {
-        setLoad(true)
+        setLoad(true);
         const sucesso = await buscarDocumentoPelaSigla(siglaDocumento);
         if (sucesso) {
             navigate(`/visualizar-documento/${siglaDocumento}`);
         }
+        setTimeout(() => {
+            setLoad(false);
+        }, 4000)
     }
 
     useEffect(() => {
@@ -150,7 +153,7 @@ function Mesa() {
             {load &&(
               <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                open={open}
+                open={load}
                 onClick={handleCloseLoad}
                 >
                 <CircularProgress color="inherit" />
